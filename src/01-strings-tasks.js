@@ -256,7 +256,14 @@ function getRectangleString(width, height) {
  *
  */
 function encodeToRot13(str) {
-  return str;
+  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz?! ';
+  const cipheredLetters = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm?! ';
+  let cipheredStr = '';
+  for (let i = 0; i < str.length; i += 1) {
+    const index = letters.indexOf(str[i]);
+    cipheredStr += `${cipheredLetters[index]}`;
+  }
+  return cipheredStr;
 }
 
 /**
